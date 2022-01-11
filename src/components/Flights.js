@@ -8,19 +8,20 @@ const Flights = () => {
     useEffect(() => {
         fetch('https://api.spacexdata.com/v3/launches/')
             .then(value => value.json())
-            .then(value =>setFlights(value))
+            .then(value => setFlights(value))
     }, [])
 
-    let array=[];
+    let array = [];
     for (const flight of flights) {
-        if (flight.launch_year !=='2020'){
+        if (flight.launch_year !== '2020') {
             array.push(flight)
         }
     }
 
     return (
         <div>
-            {array.map(value => <Flight key={value.flight_number} name={value.mission_name} year={value.launch_year} icon={value.links.mission_patch_small}/>)}
+            {array.map(value => <Flight key={value.flight_number} name={value.mission_name} year={value.launch_year}
+                                        icon={value.links.mission_patch_small}/>)}
         </div>
     );
 };

@@ -1,13 +1,16 @@
+import './Flight.css'
 
-const Flight=(props)=>{
+const Flight = (props) => {
 
-    const {name, year, icon}=props;
+    const {name, year, icon} = props;
 
-    return(
-        <div>
-            <h1>{name}</h1>
-            <h2>{year}</h2>
-            <img src={icon} alt={name}/>
+    return (
+        <div className={'main'}>
+            <div className={'left'}>
+                <h1>{name}</h1>
+                <h2>{year}</h2>
+            </div>
+            <div className={'right'}><img src={icon} alt={name}/></div>
         </div>
     )
 
