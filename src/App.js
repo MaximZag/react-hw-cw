@@ -6,9 +6,11 @@ import Comments from "./components/Comments/Comments";
 function App() {
     return (
         <div>
-            <Users/>
-            <Posts/>
-            <Comments/>
+            <div className={'top'}>
+                <div className={'left'}><Users/></div>
+                <div className={'right'}><Posts/></div>
+            </div>
+           <div className={'bottom'}> <Comments /></div>
         </div>
     );
 }
