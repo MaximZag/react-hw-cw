@@ -3,7 +3,7 @@ import React, {useEffect, useState} from 'react';
 import User from "../User/User";
 import Posts from "../Posts/Posts";
 import './Users.css'
-import Userdetail from "../userdetail/Userdetail";
+import Userdetail from "../Userdetail/Userdetail";
 
 const Users = () => {
 
@@ -32,15 +32,18 @@ const Users = () => {
     return (
         <div>
             <div className={'main'}>
-                <div>
+                <div className={'users'}>
                     {users.map(value => <User key={value.id} id={value.id} name={value.name} email={value.email}
                                               chooseUser={chooseUser}/>)}
                 </div>
-
-                {user && <Userdetail user={user} showPosts={showPosts}/>}
+                <div className={'details'}>
+                    {user && <Userdetail user={user} showPosts={showPosts}/>}
+                </div>
             </div>
-            {posts && posts.map(value => <Posts key={value.id} id={value.id} title={value.title}
-                                                body={value.body}/>)}
+            <div className={'posts'}>
+                {posts && posts.map(value => <Posts key={value.id} id={value.id} title={value.title}
+                                                    body={value.body}/>)}
+            </div>
         </div>
     );
 };

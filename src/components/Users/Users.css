@@ -1,3 +1,26 @@
-.main{
+.main {
     display: flex;
+}
+
+.posts {
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 5px;
+}
+
+.details {
+    width: 50%;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 5px;
+}
+
+.users {
+    width: 50%;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 5px;
 }
