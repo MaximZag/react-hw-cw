@@ -14,7 +14,6 @@ const Form = ({filterUsers}) => {
         e.preventDefault()
         filterUsers(form)
     }
-
     return (
         <div>
             <form>
@@ -27,6 +26,8 @@ const Form = ({filterUsers}) => {
 
         </div>
     );
+
 };
 
 export default Form;
+
