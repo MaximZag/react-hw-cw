@@ -1,19 +1,27 @@
 import React, {useEffect, useState} from 'react';
-import User from "../../components/User/User";
+import {Outlet} from "react-router-dom";
+
 import {userService} from "../../services/user.service";
+import './UsersPage.css';
+import User from "../../components/User/User";
 
 
 const UsersPage = () => {
 
-    const [users, setUsers]=useState([])
+    const [users, setUsers] = useState([])
 
-    useEffect(()=>{
-        userService.getAll().then(value=>setUsers(value))
-    },[])
+    useEffect(() => {
+        userService.getAll().then(value => setUsers(value))
+    }, [])
 
     return (
-        <div>
-            {users.map(user=><User key={user.id} user={user}/> )}
+        <div className={'main'}>
+            <div className={'users'}>
+                {users.map(user => <User key={user.id} user={user}/>)}
+            </div>
+            <div>
+                <Outlet/>
+            </div>
         </div>
     );
 };

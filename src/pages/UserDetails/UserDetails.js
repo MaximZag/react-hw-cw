@@ -1,20 +1,21 @@
 import React, {useEffect, useState} from 'react';
-import {useLocation, useParams} from "react-router-dom";
+import {Link, useLocation, useParams, Outlet} from "react-router-dom";
 
 import {userService} from "../../services/user.service";
 
 const UserDetails = () => {
     const {id} = useParams()
     const [userDetails, setUserDetails] = useState(null);
-    const {state}=useLocation()
+    const {state} = useLocation()
 
     useEffect(() => {
-        if (state){
+        if (state) {
             setUserDetails(state)
             return
         }
         userService.getById(id).then(value => setUserDetails(value))
     }, [id])
+
 
     return (
         <div>
@@ -24,8 +25,13 @@ const UserDetails = () => {
                     <div>{userDetails.username}</div>
                     <div>{userDetails.email}</div>
                     <div>{userDetails.address.street}</div>
+                    <Link to={'posts'}>
+                        <button>UserPosts</button>
+                    </Link>
                 </div>
+
             )}
+            <Outlet/>
         </div>
     );
 };
