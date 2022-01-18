@@ -15,7 +15,3 @@
     margin: 10px;
     background: antiquewhite;
 }
-
-.header a[class='active'] {
-    color: yellow;
-}

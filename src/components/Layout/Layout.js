@@ -1,7 +1,7 @@
 import React from 'react';
 
 import css from "./Layout.module.css";
-import {Link, NavLink, Outlet} from "react-router-dom";
+import {Link, Outlet} from "react-router-dom";
 
 const Layout = () => {
     return (
