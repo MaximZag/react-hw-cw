@@ -1,14 +1,7 @@
 import {Routes, Route} from "react-router-dom";
 
-import UsersPage from "./pages/UsersPage/UsersPage";
-import PostsPage from "./pages/PostsPage/PostsPage";
 import Layout from "./components/Layout/Layout";
-import UserDetails from "./pages/UserDetails/UserDetails";
-import UserPosts from "./pages/UserPosts/UserPosts";
-import PostDetails from "./pages/PostDetails/PostDetails";
-import CommentsPage from "./pages/CommentsPage/CommentsPage";
-import AlbumsPage from "./pages/AlbumsPage/AlbumsPage";
-import PhotosPage from "./pages/PhotosPage/PhotosPage";
+import {UsersPage, UserDetails, UserPosts, AlbumsPage, PhotosPage, PostsPage, PostDetails, CommentsPage} from "./pages";
 
 
 function App() {

@@ -21,4 +21,4 @@ const CommentsPage = () => {
     );
 };
 
-export default CommentsPage;
+export {CommentsPage};

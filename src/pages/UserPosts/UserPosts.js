@@ -22,4 +22,4 @@ const UserPosts = () => {
 };
 
 
-export default UserPosts;
+export {UserPosts};
