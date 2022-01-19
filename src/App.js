@@ -1,4 +1,4 @@
-import {Routes, Route} from "react-router-dom";
+import {Routes, Route, Navigate} from "react-router-dom";
 
 import Layout from "./components/Layout/Layout";
 import {UsersPage, UserDetails, UserPosts, AlbumsPage, PhotosPage, PostsPage, PostDetails, CommentsPage} from "./pages";
@@ -9,6 +9,8 @@ function App() {
         <>
             <Routes>
                 <Route path={'/'} element={<Layout/>}>
+                    <Route index element={<Navigate to={'users'}/>}/>
+
                     <Route path={'users'} element={<UsersPage/>}>
                         <Route path={':id'} element={<UserDetails/>}>
                             <Route path={'posts'} element={<UserPosts/>}/>
