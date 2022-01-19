@@ -14,13 +14,13 @@ const AlbumsPage = () => {
 
     return (
         <div>
-        <div className={'albums'}>
-            {albums && albums.map(album =>
-                <div key={album.id}>
-                    <Link to={`${album.id.toString()}/photos`}>{album.id}--{album.title}</Link>
-                </div>)}
-        </div>
-                <Outlet/>
+            <div className={'albums'}>
+                {albums && albums.map(album =>
+                    <div key={album.id}>
+                        <Link to={`${album.id.toString()}/photos`}>{album.id}--{album.title}</Link>
+                    </div>)}
+            </div>
+            <Outlet/>
         </div>
     );
 };

@@ -7,7 +7,6 @@ import User from "../../components/User/User";
 
 
 const UsersPage = () => {
-
     const [users, setUsers] = useState([])
 
     useEffect(() => {

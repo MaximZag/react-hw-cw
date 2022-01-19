@@ -14,7 +14,7 @@ const PhotosPage = () => {
 
     return (
         <div className={'photomain'}>
-            {photos && photos.map(photo=><div key={photo.id} className={'photo'}>
+            {photos && photos.map(photo => <div key={photo.id} className={'photo'}>
                 <div>{photo.title}</div>
                 <img src={photo.url} alt={photo.title}/>
             </div>)}

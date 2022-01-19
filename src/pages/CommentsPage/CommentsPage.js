@@ -4,7 +4,6 @@ import {useParams} from "react-router-dom";
 import {commentService} from "../../services/comment.service";
 
 const CommentsPage = () => {
-
     const {id} = useParams()
     const [comments, setComments] = useState([]);
 
