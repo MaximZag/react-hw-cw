@@ -3,6 +3,7 @@ import {useParams} from "react-router-dom";
 
 import {photoService} from "../../services/photo.service";
 import './PhotosPage.css'
+import Photo from "../../components/Photo/Photo";
 
 const PhotosPage = () => {
     const {albumId} = useParams()
@@ -14,10 +15,7 @@ const PhotosPage = () => {
 
     return (
         <div className={'photomain'}>
-            {photos.map(photo => <div key={photo.id} className={'photo'}>
-                <div>{photo.title}</div>
-                <img src={photo.url} alt={photo.title}/>
-            </div>)}
+            {photos.map(photo=><Photo key={photo.id} photo={photo}/>)}
         </div>
     );
 };
