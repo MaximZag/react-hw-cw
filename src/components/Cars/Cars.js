@@ -5,7 +5,7 @@ import Car from "../Car/Car";
 
 const Cars = ({trigger}) => {
     const [cars, setCars] = useState([]);
-console.log(trigger)
+
     useEffect(() => {
         carService.getAll().then(value => setCars([...value]))
     }, [trigger])
