@@ -1,8 +1,9 @@
 import React, {useEffect, useState} from 'react';
-import {Link, useParams, Outlet} from "react-router-dom";
+import {useParams, Outlet} from "react-router-dom";
 
 import {albumService} from "../../services/album.service";
 import './AlbumsPage.css'
+import Album from "../../components/Album/Album";
 
 const AlbumsPage = () => {
     const {id} = useParams()
@@ -15,10 +16,7 @@ const AlbumsPage = () => {
     return (
         <div>
             <div className={'albums'}>
-                {albums.map(album =>
-                    <div key={album.id}>
-                        <Link to={`${album.id.toString()}/photos`}>{album.id}--{album.title}</Link>
-                    </div>)}
+                {albums.map(album=><Album key={album.id} album={album}/>)}
             </div>
             <Outlet/>
         </div>
