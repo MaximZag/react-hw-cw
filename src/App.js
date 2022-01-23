@@ -13,6 +13,7 @@ function App() {
 
                     <Route path={'episode'} element={<EpisodesPage/>}/>
                     <Route path={'character'} element={<CharactersPage/>}/>
+                    {/*<Route path={'episode?page=2'} element={<EpisodesPage/>}/>*/}
                 </Route>
             </Routes>
         </>
