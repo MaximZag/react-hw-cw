@@ -13,7 +13,7 @@ const EpisodesPage = () => {
         episodeService.getAll().then(value => setEpisodes({...value}))
     }, [])
 
-console.log(episodes.results[0])
+console.log(episodes.results)
 console.log(episodes.info)
     return (
         <div className={'main'}>
@@ -21,9 +21,9 @@ console.log(episodes.info)
                 {/*{episodes.results.map(episode => <Episode epis={episode}/>)}*/}
                 {/*{episodes.results[0]}*/}
             </div>
-            <div className={'outlet'}>
-                <Outlet/>
-            </div>
+            {/*<div className={'outlet'}>*/}
+            {/*    <Outlet/>*/}
+            {/*</div>*/}
         </div>
     );
 };
