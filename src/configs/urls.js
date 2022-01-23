@@ -1,11 +1,9 @@
-const baseURL = 'https://jsonplaceholder.typicode.com'
+const baseURL = 'https://rickandmortyapi.com/api'
 
 export default baseURL
 
 export const urls = {
-    posts: '/posts',
-    users: '/users',
-    comments: '/comments',
-    albums: '/albums',
-    photos: '/photos'
+    characters: '/character',
+    locations: '/location',
+    episodes: '/episode',
 }
