@@ -8,7 +8,7 @@ import Episode from "../../components/Episode/Episode";
 
 const EpisodesPage = () => {
     const [episodes, setEpisodes] = useState([])
-
+console.log(episodes)
     useEffect(() => {
         episodeService.getAll().then(value => setEpisodes(value))
     }, [])
