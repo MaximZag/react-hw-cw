@@ -11,7 +11,7 @@ const Layout = () => {
                     <button>Episodes</button>
                 </Link>
             </div>
-            <div className={css.outlet}>
+            <div>
                 <Outlet/>
             </div>
         </>

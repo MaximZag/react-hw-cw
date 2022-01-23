@@ -5,14 +5,14 @@ import './Episode.css'
 
 const Episode = ({epis}) => {
     const {id, name, air_date, episode, characters} = epis
-console.log(characters)
+
     return (
         <div>
             <div> {id}    </div>
             <div> {name}    </div>
             <div> {air_date}    </div>
             <div> {episode}    </div>
-            <Link to={`${id}/character`}>
+            <Link to={`/character`} state={characters}>
                 <button>Show Albums</button>
             </Link>
         </div>

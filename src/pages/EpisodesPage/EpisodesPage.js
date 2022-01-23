@@ -14,15 +14,10 @@ const EpisodesPage = () => {
     }, [])
 
 
-console.log(episodes.results[0])
-console.log(episodes)
     return (
         <div className={'main'}>
             <div className={'users'}>
                 {episodes.results.map(episode => <Episode key={episode.id} epis={episode}/>)}
-            </div>
-            <div className={'outlet'}>
-                <Outlet/>
             </div>
         </div>
     );

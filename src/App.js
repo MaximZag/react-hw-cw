@@ -11,9 +11,8 @@ function App() {
                 <Route path={'/'} element={<Layout/>}>
                     <Route index element={<Navigate to={'episode'}/>}/>
 
-                    <Route path={'episode'} element={<EpisodesPage/>}>
-                        <Route path={'character'} element={<CharactersPage/>}/>
-                    </Route>
+                    <Route path={'episode'} element={<EpisodesPage/>}/>
+                    <Route path={'character'} element={<CharactersPage/>}/>
                 </Route>
             </Routes>
         </>
