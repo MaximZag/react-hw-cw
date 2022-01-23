@@ -7,23 +7,23 @@ import Episode from "../../components/Episode/Episode";
 
 
 const EpisodesPage = () => {
-    const [episodes, setEpisodes] = useState({})
+    const [episodes, setEpisodes] = useState({info:{},results:[]})
 
     useEffect(() => {
         episodeService.getAll().then(value => setEpisodes({...value}))
     }, [])
 
-console.log(episodes.results)
-console.log(episodes.info)
+
+console.log(episodes.results[0])
+console.log(episodes)
     return (
         <div className={'main'}>
             <div className={'users'}>
-                {/*{episodes.results.map(episode => <Episode epis={episode}/>)}*/}
-                {/*{episodes.results[0]}*/}
+                {episodes.results.map(episode => <Episode key={episode.id} epis={episode}/>)}
             </div>
-            {/*<div className={'outlet'}>*/}
-            {/*    <Outlet/>*/}
-            {/*</div>*/}
+            <div className={'outlet'}>
+                <Outlet/>
+            </div>
         </div>
     );
 };

@@ -1,7 +1,7 @@
 import {Routes, Route, Navigate} from "react-router-dom";
 
 import Layout from "./components/Layout/Layout";
-import {EpisodesPage} from "./pages";
+import {CharactersPage, EpisodesPage} from "./pages";
 
 
 function App() {
@@ -9,13 +9,10 @@ function App() {
         <>
             <Routes>
                 <Route path={'/'} element={<Layout/>}>
-                    {/*<Route index element={<Navigate to={'episode'}/>}/>*/}
+                    <Route index element={<Navigate to={'episode'}/>}/>
 
                     <Route path={'episode'} element={<EpisodesPage/>}>
-                        {/*<Route path={':id'} element={<UserDetails/>}>*/}
-                        {/*    <Route path={'posts'} element={<UserPosts/>}/>*/}
-                        {/*</Route>*/}
-
+                        <Route path={'character'} element={<CharactersPage/>}/>
                     </Route>
                 </Route>
             </Routes>
