@@ -1,9 +1,12 @@
-.main {
+.mainx {
     display: flex;
+    flex-wrap: wrap;
 }
 
-.users {
-    width: 45%;
+.episodepage {
+    /*width: 45%;*/
+    display: flex;
+    flex-wrap: wrap;
     font-size: 20px;
     margin: 20px;
     border: 1px solid black;
@@ -11,8 +14,11 @@
     padding: 10px;
 }
 
-.outlet {
-    width: 60%;
-    margin: 10px;
-    font-size: 18px;
+.oneepisode{
+    width: 20%;
 }
+/*.outlet {*/
+/*    width: 60%;*/
+/*    margin: 10px;*/
+/*    font-size: 18px;*/
+/*}*/

@@ -1,11 +1,11 @@
 import React from 'react';
 
+import './Character.css'
+
 const Character = ({character}) => {
     const {name, status, gender, species, image} = character
-    console.log(character)
-    console.log(name)
     return (
-        <div>
+        <div className={'character'}>
             <div><img src={image} alt={name}/></div>
             <div>{name}</div>
             <div>{status}</div>

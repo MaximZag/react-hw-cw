@@ -1,0 +1,14 @@
+.character{
+    width: 22%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 10px;
+;
+}
+.character img{
+    width: 200px;
+}

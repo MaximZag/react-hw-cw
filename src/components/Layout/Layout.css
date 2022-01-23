@@ -12,6 +12,7 @@
 }
 
 .outlet {
-    margin: 10px;
+    /*margin: 10px;*/
     background: antiquewhite;
+    /*display: flex;*/
 }
