@@ -9,7 +9,7 @@ function App() {
         <>
             <Routes>
                 <Route path={'/'} element={<Layout/>}>
-                    <Route index element={<Navigate to={'episode'}/>}/>
+                    {/*<Route index element={<Navigate to={'episode'}/>}/>*/}
 
                     <Route path={'episode'} element={<EpisodesPage/>}>
                         {/*<Route path={':id'} element={<UserDetails/>}>*/}

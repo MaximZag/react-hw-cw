@@ -5,6 +5,7 @@ import './Episode.css'
 
 const Episode = ({epis}) => {
     const {results:{id, air_date, episode}} = epis
+
     return (
         <div>
             <div> {id}--{air_date}-{episode}     </div>
