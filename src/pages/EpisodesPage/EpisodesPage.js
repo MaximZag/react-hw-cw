@@ -4,14 +4,28 @@ import {Link} from "react-router-dom";
 import {episodeService} from "../../services/episode.service";
 import './EpisodesPage.css';
 import Episode from "../../components/Episode/Episode";
+import {axiosService} from "../../services/axios.service";
 
 
 const EpisodesPage = () => {
     const [episodes, setEpisodes] = useState({info: {}, results: []})
 
+    let link = 'https://rickandmortyapi.com/api/episode'
+
     useEffect(() => {
-        episodeService.getAll().then(value => setEpisodes({...value}))
-    }, [])
+        // episodeService.getAll().then(value => setEpisodes({...value}))
+        axiosService(`${link}`).then(value => setEpisodes({...value.data}))
+        console.log('request')
+    }, [link])
+
+    const pagination=(value)=>{
+        if(link==='https://rickandmortyapi.com/api/episode'){
+            link=value
+            console.log(link)
+            return link
+        }
+    }
+console.log(link)
 
     return (
         <div>
@@ -21,12 +35,8 @@ const EpisodesPage = () => {
                 </div>)}
             </div>
             <div className={'buttons'}>
-                <Link to={`/${episodes.info.prev}`}>
                     <button>Prev</button>
-                </Link>
-                <Link to={`/${episodes.info.next}`}>
-                    <button>Next</button>
-                </Link>
+                    <button onClick={()=>pagination(episodes.info.next)}>Next</button>
             </div>
         </div>
     );
