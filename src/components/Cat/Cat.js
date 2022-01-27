@@ -4,7 +4,7 @@ const Cat = ({value, deleter}) => {
     return (
         <div>
             {value}
-            <button onClick={()=>deleter(value,'cat')}>Delete</button>
+            <button onClick={() => deleter(value, 'cat')}>Delete</button>
         </div>
     );
 };

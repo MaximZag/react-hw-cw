@@ -2,6 +2,7 @@ import {useReducer, createRef, useState, useEffect} from "react";
 
 import Cat from "./components/Cat/Cat";
 import Dog from "./components/Dog/Dog";
+import './App.css'
 
 const reducer = (state, action) => {
     if (action.type === 'cat') {
@@ -57,17 +58,29 @@ function App() {
 
     return (
         <div>
-            <form onSubmit={sendCat}>
-                <div><label>Add cat <input type="text" name={'cat'} ref={cat}/></label></div>
-                <button>Save</button>
-            </form>
-            <form onSubmit={sendDog}>
-                <div><label>Add dog <input type="text" name={'dog'} ref={dog}/></label></div>
-                <button>Save</button>
-            </form>
-            {inputsArray && inputsArray.cat.map(value => <Cat key={value} value={value} deleter={deleter}/>)}
+            <div className={'forms'}>
+                <div>
+                    <form onSubmit={sendCat} className={'form'}>
+                        <div><label>Add cat <input type="text" name={'cat'} ref={cat}/></label></div>
+                        <button>Save</button>
+                    </form>
+                </div>
+                <div>
+                    <form onSubmit={sendDog} className={'form'}>
+                        <div><label>Add dog <input type="text" name={'dog'} ref={dog}/></label></div>
+                        <button>Save</button>
+                    </form>
+                </div>
+            </div>
             <hr/>
-            {inputsArray && inputsArray.dog.map(value => <Dog key={value} value={value} deleter={deleter}/>)}
+            <div className={'catdog'}>
+                <div className={'item'}>
+                    {inputsArray && inputsArray.cat.map(value => <Cat key={value} value={value} deleter={deleter}/>)}
+                </div>
+                <div className={'item'}>
+                    {inputsArray && inputsArray.dog.map(value => <Dog key={value} value={value} deleter={deleter}/>)}
+                </div>
+            </div>
         </div>
     );
 }
