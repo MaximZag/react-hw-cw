@@ -1,4 +1,7 @@
-import {useReducer, createRef} from "react";
+import {useReducer, createRef, useState, useEffect} from "react";
+
+import Cat from "./components/Cat/Cat";
+import Dog from "./components/Dog/Dog";
 
 const reducer = (state, action) => {
     if (action.type === 'cat') {
@@ -23,7 +26,25 @@ function App() {
         dispatch({type: 'dog', payload: dog.current.value})
     }
 
+
     const [state, dispatch] = useReducer(reducer, {cat: '', dog: ''});
+
+    let [inputsArray, setInputsArray] = useState({cat: [], dog: []})
+
+    const pusher = () => {
+        let newObject = {...inputsArray}
+        if (state.cat !== '' && state.cat !== newObject.cat[newObject.cat.length - 1]) {
+            newObject.cat.push(state.cat)
+        }
+        if (state.dog !== '' && state.dog !== newObject.dog[newObject.dog.length - 1]) {
+            newObject.dog.push(state.dog)
+        }
+        setInputsArray(newObject)
+    }
+
+    useEffect(() => {
+        pusher()
+    }, [state])
 
     return (
         <div>
@@ -32,17 +53,12 @@ function App() {
                 <button>Save</button>
             </form>
             <form onSubmit={sendDog}>
-                <div><label>Add cat <input type="text" name={'dog'} ref={dog}/></label></div>
+                <div><label>Add dog <input type="text" name={'dog'} ref={dog}/></label></div>
                 <button>Save</button>
             </form>
-            {state.cat && <div>
-                {state.cat}
-                <button>Delete</button>
-            </div>}
-            {state.dog && <div>
-                {state.dog}
-                <button>Delete</button>
-            </div>}
+            {inputsArray && inputsArray.cat.map(value => <Cat key={value} value={value}/>)}
+            <hr/>
+            {inputsArray && inputsArray.dog.map(value => <Dog key={value} value={value}/>)}
         </div>
     );
 }
