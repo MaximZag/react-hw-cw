@@ -1,10 +1,10 @@
 import React from 'react';
 
-const Cat = ({value}) => {
+const Cat = ({value, deleter}) => {
     return (
         <div>
             {value}
-            <button>Delete</button>
+            <button onClick={()=>deleter(value,'cat')}>Delete</button>
         </div>
     );
 };

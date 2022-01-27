@@ -42,6 +42,15 @@ function App() {
         setInputsArray(newObject)
     }
 
+    const deleter = (value, animal) => {
+        let deleteObject = {...inputsArray}
+        const index = deleteObject[animal].indexOf(value);
+        if (index > -1) {
+            deleteObject[animal].splice(index, 1);
+        }
+        setInputsArray(deleteObject)
+    }
+
     useEffect(() => {
         pusher()
     }, [state])
@@ -56,9 +65,9 @@ function App() {
                 <div><label>Add dog <input type="text" name={'dog'} ref={dog}/></label></div>
                 <button>Save</button>
             </form>
-            {inputsArray && inputsArray.cat.map(value => <Cat key={value} value={value}/>)}
+            {inputsArray && inputsArray.cat.map(value => <Cat key={value} value={value} deleter={deleter}/>)}
             <hr/>
-            {inputsArray && inputsArray.dog.map(value => <Dog key={value} value={value}/>)}
+            {inputsArray && inputsArray.dog.map(value => <Dog key={value} value={value} deleter={deleter}/>)}
         </div>
     );
 }
