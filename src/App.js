@@ -20,13 +20,13 @@ function App() {
     const sendCat = (e) => {
         e.preventDefault()
         dispatch({type: 'cat', payload: cat.current.value})
-        cat.current.value=''
+        cat.current.value = ''
     }
 
     const sendDog = (e) => {
         e.preventDefault()
         dispatch({type: 'dog', payload: dog.current.value})
-        dog.current.value=''
+        dog.current.value = ''
     }
 
 
@@ -52,6 +52,8 @@ function App() {
             deleteObject[animal].splice(index, 1);
         }
         setInputsArray(deleteObject)
+        dispatch({type: 'cat', payload: ''})
+        dispatch({type: 'dog', payload: ''})
     }
 
     useEffect(() => {
