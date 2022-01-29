@@ -1,4 +1,5 @@
 import {createSlice, createAsyncThunk} from "@reduxjs/toolkit";
+
 import {carService} from "../services/car.service";
 
 export const getAllCars = createAsyncThunk(
@@ -6,7 +7,6 @@ export const getAllCars = createAsyncThunk(
     async (_, {rejectWithValue}) => {
         try {
             const cars = await carService.getAll();
-            console.log(cars)
             return cars
         } catch (e) {
             return rejectWithValue(e.message)
@@ -40,17 +40,39 @@ export const deleteAsyncCar = createAsyncThunk(
     }
 )
 
+export const updateCar = createAsyncThunk(
+    'carSlice/updateCar',
+    async ({data}, {dispatch}) => {
+        try {
+            await carService.updateById(data.id, data)
+            dispatch(updatingCar({data}))
+        } catch (e) {
+            console.log(e.message)
+        }
+    }
+)
+
 const carSlice = createSlice(
     {
         name: 'carSlice',
-        initialState: {cars: [], status: null, error: null},
+        initialState: {cars: [], uniqcar: {}, status: null, error: null},
         reducers: {
             addCar: (state, action) => {
                 state.cars.push(action.payload.data)
             },
             deleteCar: (state, action) => {
                 state.cars = state.cars.filter(car => car.id !== action.payload.id)
-            }
+            },
+            getUniqCar: (state, action) => {
+                state.uniqcar = {...action.payload.car}
+            },
+            updatingCar: (state, action) => {
+                for (let i = 0; i < state.cars.length; i++) {
+                    if (state.cars[i].id === action.payload.data.id) {
+                        state.cars[i] = action.payload.data
+                    }
+                }
+            },
         },
         extraReducers: {
             [getAllCars.pending]: (state, action) => {
@@ -68,7 +90,7 @@ const carSlice = createSlice(
     })
 
 const carReducer = carSlice.reducer;
-const {addCar, deleteCar} = carSlice.actions
+const {addCar, deleteCar, getUniqCar, updatingCar} = carSlice.actions
 
 export default carReducer
-export const carActions = {addCar, deleteCar}
+export const carActions = {addCar, deleteCar, getUniqCar}
