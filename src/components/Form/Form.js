@@ -3,6 +3,7 @@ import {useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
 
 import {createCar, updateCar} from "../../store/car.slice";
+import './Form.css'
 
 const Form = () => {
     const {register, handleSubmit, reset, setValue} = useForm()
@@ -16,6 +17,7 @@ const Form = () => {
     }, [uniqcar.id])
 
     const submit = (data) => {
+
         if (uniqcar.id) {
             data = {...data, id: uniqcar.id}
             dispatch(updateCar({data}))
@@ -26,8 +28,8 @@ const Form = () => {
     }
 
     return (
-        <div>
-            <form onSubmit={handleSubmit(submit)}>
+        <div className={'form'}>
+            <form className={'inner'} onSubmit={handleSubmit(submit)}>
                 <label>Model:<input type="text" {...register('model')}/></label>
                 <label>Price:<input type="text" {...register('price')}/></label>
                 <label>Year:<input type="text" {...register('year')}/></label>

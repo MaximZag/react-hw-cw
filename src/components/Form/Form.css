@@ -1,0 +1,18 @@
+.form {
+    padding: 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.inner {
+    font-size: 25px;
+}
+
+.inner input {
+    font-size: 25px;
+}
+
+.inner button {
+    font-size: 25px;
+    margin-left: 10px;
+}

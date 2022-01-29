@@ -46,6 +46,7 @@ export const updateCar = createAsyncThunk(
         try {
             await carService.updateById(data.id, data)
             dispatch(updatingCar({data}))
+            dispatch(getUniqCar({car: {model: '', price: '', year: '', id: ''}}))
         } catch (e) {
             console.log(e.message)
         }
