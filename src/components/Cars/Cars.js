@@ -7,7 +7,6 @@ import './Cars.css'
 
 const Cars = () => {
     const {cars, status, error} = useSelector(state => state['carReducer'])
-
     const dispatch = useDispatch()
 
     useEffect(() => {

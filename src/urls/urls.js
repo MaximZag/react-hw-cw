@@ -1,6 +1,4 @@
-const baseURLCars = 'http://91.201.233.14/api/v2'
-const baseUrljsonpl = 'https://jsonplaceholder.typicode.com'
-
+const baseURL = {allcars: 'http://91.201.233.14/api/v2', jsonpl: 'https://jsonplaceholder.typicode.com'}
 
 export const urls = {
     cars: '/cars',
@@ -8,4 +6,4 @@ export const urls = {
     posts: '/posts',
     comments: '/comments'
 }
-export default baseURLCars
+export default baseURL

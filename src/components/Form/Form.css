@@ -14,5 +14,15 @@
 
 .inner button {
     font-size: 25px;
-    margin-left: 10px;
+    margin-left: 45%;
+    margin-top: 20px;
+}
+
+.field {
+    display: flex;
+}
+
+.error {
+    font-size: 15px;
+    text-align: center;
 }
