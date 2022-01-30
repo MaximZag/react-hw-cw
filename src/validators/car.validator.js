@@ -11,6 +11,8 @@ export const CarValidator = Joi.object({
         'number.max': 'Ціна має бути не більше 1 000 000'
     }),
     year: Joi.number().min(1990).max(new Date().getFullYear()).required().messages({
-        'number.base': 'Рік може бути від 1900 до теперішнього'
+        'number.base': 'Рік може бути від 1990 до теперішнього',
+        'number.min': 'Рік має бути більше 1990',
+        'number.max': 'Рік має бути не більше теперішнього'
     })
 })
