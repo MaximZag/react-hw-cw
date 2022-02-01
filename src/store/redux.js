@@ -1,8 +1,8 @@
 import {configureStore} from "@reduxjs/toolkit";
 
-import carReducer from "./car.slice";
+import todoReducer from "./todo.slice";
 
 const store=configureStore(
-    {reducer:{carReducer}}
+    {reducer:{todoReducer}}
 )
 export default store
