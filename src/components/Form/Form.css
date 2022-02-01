@@ -1,0 +1,21 @@
+.top {
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.form {
+    font-size: 35px;
+    /*margin-left: 30%;*/
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.form input {
+    font-size: 35px;
+}
+
+.form button {
+    font-size: 35px;
+}

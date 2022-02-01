@@ -1,7 +1,9 @@
 import React from 'react';
 import {useForm} from "react-hook-form";
 import {useDispatch, useSelector} from "react-redux";
+
 import {todoActions} from "../../store/todo.slice";
+import './Form.css'
 
 const Form = () => {
     const {register, handleSubmit, reset} = useForm()
@@ -16,13 +18,16 @@ const Form = () => {
 
     return (
         <div>
-            <div>
+            <div className={'top'}>
                 All:{all} Completed:{complete}
             </div>
-            <form onSubmit={handleSubmit(submit)}>
-                <label>To do:<input type="text" {...register('todo')}/></label>
-                <button>Send</button>
-            </form>
+            <div className={'form'}>
+                <form onSubmit={handleSubmit(submit)}>
+                    <label>To do:<input type="text" {...register('todo')}/></label>
+                    <button>Send</button>
+                </form>
+            </div>
+            <hr/>
         </div>
     );
 };

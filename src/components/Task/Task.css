@@ -1,0 +1,24 @@
+.main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 10px;
+    font-size: 25px;
+    margin: 20px;
+}
+
+.main button {
+    font-size: 20px;
+}
+
+.checkbox {
+    zoom: 1.7
+}
+
+.checked {
+    text-decoration: line-through;
+}
+
+.unchecked {
+    text-decoration: none;
+}
