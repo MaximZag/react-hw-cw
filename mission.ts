@@ -1,4 +1,4 @@
-import {IMission} from "./mission.interface";
+import {IMission} from "./interfaces/mission.interface";
 
 
 const mission: IMission = {
