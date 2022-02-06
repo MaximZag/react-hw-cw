@@ -43,12 +43,15 @@ const movieSlice = createSlice(
         name: 'movieSlice',
         initialState: {
             movies: [],
+            reservmovies:[],
             genres: [],
             uniqmovie: {}
         },
         reducers: {
             getAllMovies: (state, action) => {
                 state.movies = [...action.payload.movies.results]
+                state.reservmovies = [...action.payload.movies.results]
+
             },
             getAllGenres:(state,action)=>{
                 state.genres=[...action.payload.genres.genres]
@@ -58,17 +61,8 @@ const movieSlice = createSlice(
                 console.log(state.uniqmovie)
             },
             filterGenres:(state,action)=>{
-                console.log(action.payload)
-                let array=[]
-                console.log(state.movies)
-                for (const stateElement of state) {
-                    for (const id of stateElement.genre_ids){
-                        if (id===action.payload){
-                           array.push(stateElement)
-                        }
-                    }
-                }
-                state.movies=[...array]
+                state.movies=[...state.reservmovies]
+                state.movies=state.movies.filter(movie=>movie.genre_ids.includes(action.payload))
             }
         }
     }

@@ -9,7 +9,7 @@ const Genres = () => {
     const dispatch = useDispatch()
 
     // const{genres_ids}=movies
-    movies && console.log(movies.genre_ids)
+movies.map(movie=>console.log(movie.genre_ids))
     useEffect(() => {
         dispatch(getGenres())
     }, [])
