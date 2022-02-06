@@ -4,7 +4,7 @@ import {useSelector} from "react-redux";
 const MoviePage = () => {
     const {uniqmovie} = useSelector(state => state['movieReducer'])
     const {genres, poster_path, title, overview, popularity, images} = uniqmovie
-    console.log(genres)
+
     return (
         <div>
             <div>

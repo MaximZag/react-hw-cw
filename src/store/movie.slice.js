@@ -58,17 +58,19 @@ const movieSlice = createSlice(
             },
             uniqMovie:(state,action)=>{
                 state.uniqmovie={...action.payload.movie}
-                console.log(state.uniqmovie)
             },
             filterGenres:(state,action)=>{
                 state.movies=[...state.reservmovies]
                 state.movies=state.movies.filter(movie=>movie.genre_ids.includes(action.payload))
+            },
+            refreshMovies:(state)=>{
+                state.movies=[...state.reservmovies]
             }
         }
     }
 )
 
 const movieReducer = movieSlice.reducer;
-export const {getAllMovies,getAllGenres,uniqMovie, filterGenres} = movieSlice.actions
+export const {getAllMovies,getAllGenres,uniqMovie, filterGenres,refreshMovies} = movieSlice.actions
 
 export default movieReducer
