@@ -26,12 +26,25 @@ export const getGenres=createAsyncThunk(
     }
 )
 
+export const getOneMovie=createAsyncThunk(
+    'movieSlice/getOneMovie',
+    async ({id},{dispatch})=>{
+        try {
+            const movie = await moviesService.getOneMovie(id)
+            dispatch(uniqMovie({movie}))
+        } catch (e) {
+            console.log(e.message)
+        }
+    }
+)
+
 const movieSlice = createSlice(
     {
         name: 'movieSlice',
         initialState: {
             movies: [],
-            genres: []
+            genres: [],
+            uniqmovie: {}
         },
         reducers: {
             getAllMovies: (state, action) => {
@@ -39,13 +52,29 @@ const movieSlice = createSlice(
             },
             getAllGenres:(state,action)=>{
                 state.genres=[...action.payload.genres.genres]
-                console.log(state.genres)
+            },
+            uniqMovie:(state,action)=>{
+                state.uniqmovie={...action.payload.movie}
+                console.log(state.uniqmovie)
+            },
+            filterGenres:(state,action)=>{
+                console.log(action.payload)
+                let array=[]
+                console.log(state.movies)
+                for (const stateElement of state) {
+                    for (const id of stateElement.genre_ids){
+                        if (id===action.payload){
+                           array.push(stateElement)
+                        }
+                    }
+                }
+                state.movies=[...array]
             }
         }
     }
 )
 
 const movieReducer = movieSlice.reducer;
-const {getAllMovies,getAllGenres} = movieSlice.actions
+export const {getAllMovies,getAllGenres,uniqMovie, filterGenres} = movieSlice.actions
 
 export default movieReducer

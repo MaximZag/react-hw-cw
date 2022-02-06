@@ -5,12 +5,14 @@ import Genre from "../Genre/Genre";
 import './Genres.css'
 
 const Genres = () => {
-    const{genres}=useSelector(state => state['movieReducer'])
-    const dispatch=useDispatch()
+    const {genres, movies} = useSelector(state => state['movieReducer'])
+    const dispatch = useDispatch()
 
-    useEffect(()=>{
+    // const{genres_ids}=movies
+    movies && console.log(movies.genre_ids)
+    useEffect(() => {
         dispatch(getGenres())
-    },[])
+    }, [])
 
     return (
         <div className={'genres'}>
