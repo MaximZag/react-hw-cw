@@ -19,6 +19,8 @@ const MoviesPage = () => {
             <div className={'movies'}>
             {movies.map(movie=><Movie key={movie.id} movie={movie}/>)}
             </div>
+            <button>Previous</button>
+            <button>Next</button>
         </div>
     );
 };
