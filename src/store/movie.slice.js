@@ -7,8 +7,6 @@ export const getMovies = createAsyncThunk(
         try {
             const movies = await moviesService.getAllMovies(page,id)
             dispatch(getAllMovies({movies}))
-            // dispatch(reserveMovies({movies}))
-            // console.log(movies.results)
         } catch (e) {
             console.log(e.message)
         }
@@ -45,13 +43,14 @@ const movieSlice = createSlice(
         name: 'movieSlice',
         initialState: {
             movies: [],
-           pageId:{page:1,id:''},
+           pageId:{page:1,id:'',total:1},
             genres: [],
             uniqmovie: {}
         },
         reducers: {
             getAllMovies: (state, action) => {
                 state.movies = [...action.payload.movies.results]
+                state.pageId={...state.pageId, total: action.payload.movies.total_pages}
 
             },
             getAllGenres:(state,action)=>{
