@@ -1,0 +1,20 @@
+.card{
+    border: 1px solid white;
+    /*border-radius: 5px;*/
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center;
+    width: 210px;
+    height: 400px;
+    text-align: center;
+    color: white;
+}
+.card img{
+    margin-top: 5px;
+}
+.title{
+    font-size: 15px;
+    font-weight: bold;
+    margin-top: 10px;
+}

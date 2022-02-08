@@ -1,6 +1,7 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
-import {getMovies, getMoviesByGenre, pagination} from "../../store/movie.slice";
+import {getMovies, pagination} from "../../store/movie.slice";
+import './Genre.css'
 
 const Genre = ({genre:{id, name}}) => {
     const{pageId}=useSelector(state => state['movieReducer'])
@@ -13,7 +14,7 @@ const Genre = ({genre:{id, name}}) => {
 
     return (
         <div>
-            <button onClick={()=>genreFunction(pageId)}>{name}</button>
+            <button className={'button'} onClick={()=>genreFunction(pageId)}>{name}</button>
         </div>
     );
 };

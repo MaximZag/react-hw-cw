@@ -37,23 +37,35 @@ const MoviesPage = () => {
         reset()
     }
 
+    useEffect(() => {
+        const body = document.getElementById('scroll');
+        body.scrollTo({
+            left: 0,
+            top: 0,
+            behavior: "smooth"
+        })
+    }, [pageId])
+
+
     return (
-        <div>
-            <Genres/>
-            <div className={'movies'}>
+        <div className={'container'}>
+            <div className={'header'}>
+                <Genres/>
+            </div>
+            <div className={'movies'} id={'scroll'}>
                 {movies.map(movie => <Movie key={movie.id} movie={movie}/>)}
             </div>
-            <button className={'pagin'} onClick={() => paginationFunc(pageId, '-')}>Previous</button>
-            <button className={'pagin'} onClick={() => paginationFunc(pageId, '+')}>Next</button>
-            <div>Page:{pageId.page}</div>
-            <div>Total pages:{pageId.total}</div>
-            <div>
-                <form onSubmit={handleSubmit(submit)}>
-                    <label>Go to Page<input type="number" {...register('page')}/></label>
-                    <button>GotoPage</button>
-
-
-                </form>
+            <div className={'footer'}>
+                <button className={'pagin'} onClick={() => paginationFunc(pageId, '-')}>Previous</button>
+                <div>Page:{pageId.page}</div>
+                <button onClick={() => paginationFunc(pageId, '+')}>Next</button>
+                <div className={'goto'}>
+                    <form onSubmit={handleSubmit(submit)}>
+                        <label>Go to Page<input type="number" {...register('page')}/></label>
+                        <button>GotoPage</button>
+                    </form>
+                </div>
+                <div>Total pages:{pageId.total}</div>
             </div>
         </div>
     );

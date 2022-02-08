@@ -1,3 +1,24 @@
-.genres{
+.genres {
     display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 5px;
+}
+
+.top {
+    display: flex;
+}
+
+.allbutton {
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    border: groove;
+    margin-left: 10px;
+}
+
+.top-left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

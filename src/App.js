@@ -5,6 +5,7 @@ import Layout from "./pages/Layout/Layout";
 import MoviePage from "./pages/MoviePage/MoviePage";
 import MoviesPage from "./pages/MoviesPage/MoviesPage";
 
+
 function App() {
     return (
         <div>

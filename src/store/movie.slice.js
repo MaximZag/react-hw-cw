@@ -50,9 +50,9 @@ const movieSlice = createSlice(
         reducers: {
             getAllMovies: (state, action) => {
                 state.movies = [...action.payload.movies.results]
-                if (action.payload.movies.total_pages > 500) {
-                    action.payload.movies.total_pages = 500
-                }
+                // if (action.payload.movies.total_pages > 500) {
+                //     action.payload.movies.total_pages = 500
+                // }
                 state.pageId = {...state.pageId, total: action.payload.movies.total_pages}
 
             },

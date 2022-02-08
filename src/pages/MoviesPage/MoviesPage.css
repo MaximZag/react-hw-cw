@@ -1,7 +1,50 @@
+.container{
+    background-color: black;
+}
+
 .movies{
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding-top: 110px;
+    gap: 10px;
+    height: calc(100vh - 160px);
+    overflow: hidden;
+    overflow-y: auto;
+    margin: 0 auto;
+
 }
+.movies::-webkit-scrollbar {
+    width: 0;
+}
+
 .pagin{
-    margin-left: 50%;
+    margin-left: 35%;
+}
+.header{
+    height: 100px;
+    background-color: darkslateblue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+}
+.footer{
+    height: 50px;
+    background-color: darkslateblue;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    color: white;
+    font-weight: bold;
+    column-gap: 10px;
+}
+.footer button{
+    width: 150px;
+    border-radius: 5px;
+    border: groove;
+}
+.goto{
+    margin-left: 5%;
 }
