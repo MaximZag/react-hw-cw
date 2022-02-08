@@ -1,4 +1,4 @@
-.card{
+.card {
     border: 1px solid white;
     /*border-radius: 5px;*/
     display: flex;
@@ -10,10 +10,12 @@
     text-align: center;
     color: white;
 }
-.card img{
+
+.card img {
     margin-top: 5px;
 }
-.title{
+
+.title {
     font-size: 15px;
     font-weight: bold;
     margin-top: 10px;

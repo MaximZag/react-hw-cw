@@ -1,4 +1,5 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
+
 import {moviesService} from "../services/movies.service";
 
 export const getMovies = createAsyncThunk(
@@ -37,7 +38,6 @@ export const getOneMovie = createAsyncThunk(
     }
 )
 
-
 const movieSlice = createSlice(
     {
         name: 'movieSlice',
@@ -50,11 +50,7 @@ const movieSlice = createSlice(
         reducers: {
             getAllMovies: (state, action) => {
                 state.movies = [...action.payload.movies.results]
-                // if (action.payload.movies.total_pages > 500) {
-                //     action.payload.movies.total_pages = 500
-                // }
                 state.pageId = {...state.pageId, total: action.payload.movies.total_pages}
-
             },
             getAllGenres: (state, action) => {
                 state.genres = [...action.payload.genres.genres]

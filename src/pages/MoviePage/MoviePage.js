@@ -1,17 +1,18 @@
 import React from 'react';
 import {useSelector} from "react-redux";
+
 import './MoviePage.css'
+import Actor from "../../components/Actor/Actor";
 
 const MoviePage = () => {
     const {uniqmovie} = useSelector(state => state['movieReducer'])
-    const {genres, poster_path, title, overview, popularity, images, release_date} = uniqmovie
-    console.log(uniqmovie)
+    const {genres, poster_path, title, overview, popularity, images, release_date, casts} = uniqmovie
+
     let backimage = ''
     if (images?.backdrops.length < 1) {
         backimage = 'https://image.tmdb.org/t/p/original/7uRbWOXxpWDMtnsd2PF3clu65jc.jpg?api_key=e77bd741cd0b705c1841df139925cbcd&language=en-US'
     } else {
         backimage = `https://image.tmdb.org/t/p/original${images?.backdrops[0].file_path}?api_key=e77bd741cd0b705c1841df139925cbcd`
-
     }
 
     return (
@@ -37,9 +38,15 @@ const MoviePage = () => {
                     <div>Release date:{release_date}</div>
                 </div>
             </div>
+            <div className={'h2'}><h2>ACTORS</h2></div>
+            <div className={'actors'}>
+                {casts && casts.cast.filter(actor => actor.profile_path !== null).map(actor => <Actor
+                    key={actor.cast_id} actor={actor}/>)}
+            </div>
+            <div className={'h2'}><h2>IMAGES</h2></div>
             <div className={'images'}>{images && images.backdrops.map(image => <img key={image.id}
-                                                               src={`https://image.tmdb.org/t/p/w300${image.file_path}?api_key=e77bd741cd0b705c1841df139925cbcd`}
-                                                               alt=""/>)}</div>
+                                                                                    src={`https://image.tmdb.org/t/p/w300${image.file_path}?api_key=e77bd741cd0b705c1841df139925cbcd`}
+                                                                                    alt=""/>)}</div>
         </div>
     );
 };

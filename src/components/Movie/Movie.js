@@ -1,5 +1,6 @@
 import React from 'react';
 import {useDispatch} from "react-redux";
+
 import {getOneMovie} from '../../store/movie.slice'
 import {Link} from "react-router-dom";
 import './Movie.css'

@@ -1,5 +1,6 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from "react-redux";
+
 import {getGenres, getMovies, pagination} from "../../store/movie.slice";
 import Genre from "../Genre/Genre";
 import './Genres.css'
