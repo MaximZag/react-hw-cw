@@ -1,16 +1,22 @@
 import React from 'react';
 
 import './Actor.css'
+import {Link} from "react-router-dom";
+import {useDispatch} from "react-redux";
+import {getOneActor} from "../../store/movie.slice";
 
-const Actor = ({actor: {name, character, profile_path}}) => {
+const Actor = ({actor: {name, character, profile_path, id}}) => {
+    const dispatch=useDispatch()
 
     return (
-        <div className={'actorcard'}>
+        <Link to={'/actor'}>
+        <div className={'actorcard'} onClick={()=>dispatch(getOneActor({id}))}>
             <div>{name}</div>
             <img src={`https://image.tmdb.org/t/p/w200${profile_path}?api_key=e77bd741cd0b705c1841df139925cbcd`}
                  alt=""/>
             <div>{character}</div>
         </div>
+        </Link>
     );
 };
 

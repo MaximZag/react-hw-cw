@@ -49,3 +49,15 @@
 .goto{
     margin-left: 5%;
 }
+.name{
+    background: yellow;
+    position: absolute;
+    top: 150px;
+    left: 5px;
+    font-size: 30px;
+    font-weight: bold;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+    opacity: 0.8;
+    border-radius: 5px;
+}

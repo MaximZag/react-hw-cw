@@ -53,6 +53,7 @@ const MoviesPage = () => {
             <div className={'header'}>
                 <Genres/>
             </div>
+            <div className={'name'}>{pageId.name.toUpperCase()}</div>
             <div className={'movies'} id={'scroll'}>
                 {movies.map(movie => <Movie key={movie.id} movie={movie}/>)}
             </div>

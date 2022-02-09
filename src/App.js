@@ -4,6 +4,7 @@ import './App.css';
 import Layout from "./pages/Layout/Layout";
 import MoviePage from "./pages/MoviePage/MoviePage";
 import MoviesPage from "./pages/MoviesPage/MoviesPage";
+import ActorPage from "./pages/ActorPage/ActorPage";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
                     <Route index element={<Navigate to={'movies'}/>}/>
                     <Route path={'movies'} element={<MoviesPage/>}/>
                     <Route path={'movie'} element={<MoviePage/>}/>
+                    <Route path={'actor'} element={<ActorPage/>}/>
                 </Route>
             </Routes>
         </div>

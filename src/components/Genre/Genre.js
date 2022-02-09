@@ -10,7 +10,7 @@ const Genre = ({genre: {id, name}}) => {
 
     const genreFunction = (pageId) => {
         dispatch(getMovies({...pageId, page: 1, id: id}))
-        dispatch(pagination({...pageId, page: 1, id: id}))
+        dispatch(pagination({...pageId, page: 1, id: id, name:name}))
     }
 
     return (

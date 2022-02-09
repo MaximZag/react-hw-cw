@@ -28,6 +28,8 @@
 
 .left {
     border: 2px solid white;
+    display: flex;
+    align-items: center;
 }
 
 .images {
