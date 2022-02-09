@@ -1,9 +1,10 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
+import {Link} from "react-router-dom";
+
 import ActorMovie from "../../components/ActorMovie/ActorMovie";
 import './ActorPage.css'
 import {getMovies, pagination} from "../../store/movie.slice";
-import {Link} from "react-router-dom";
 
 const ActorPage = () => {
     const {
@@ -34,8 +35,7 @@ const ActorPage = () => {
             <div className={'h2'}><h2>Movies</h2></div>
             <div className={'actors'}>
                 {movie_credits && movie_credits.cast.filter(movie => movie.poster_path !== null).map(movie =>
-                    <ActorMovie
-                        key={movie.id} movie={movie}/>)}
+                    <ActorMovie key={movie.id} movie={movie}/>)}
             </div>
             <Link to={'/movies'}>
                 <button className={'backhome'} onClick={() => back(pageId)}>Back to All Movies</button>

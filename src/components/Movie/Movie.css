@@ -1,9 +1,7 @@
 .card {
     border: 1px solid white;
-    /*border-radius: 5px;*/
     display: flex;
     flex-direction: column;
-    /*justify-content: center;*/
     align-items: center;
     width: 210px;
     height: 400px;

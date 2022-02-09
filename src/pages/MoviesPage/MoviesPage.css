@@ -1,8 +1,8 @@
-.container{
+.container {
     background-color: black;
 }
 
-.movies{
+.movies {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -20,10 +20,11 @@
     width: 0;
 }
 
-.pagin{
+.pagin {
     margin-left: 35%;
 }
-.header{
+
+.header {
     height: 100px;
     background-color: darkslateblue;
     display: flex;
@@ -31,7 +32,8 @@
     align-items: center;
     position: fixed;
 }
-.footer{
+
+.footer {
     height: 50px;
     background-color: darkslateblue;
     display: flex;
@@ -41,15 +43,18 @@
     font-weight: bold;
     column-gap: 10px;
 }
-.footer button{
+
+.footer button {
     width: 150px;
     border-radius: 5px;
     border: groove;
 }
-.goto{
+
+.goto {
     margin-left: 5%;
 }
-.name{
+
+.name {
     background: yellow;
     position: absolute;
     top: 150px;

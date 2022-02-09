@@ -38,9 +38,9 @@ export const getOneMovie = createAsyncThunk(
     }
 )
 
-export const getOneActor=createAsyncThunk(
+export const getOneActor = createAsyncThunk(
     'movieSlice/getOneActor',
-    async ({id},{dispatch})=>{
+    async ({id}, {dispatch}) => {
         try {
             const actor = await moviesService.getOneActor(id)
             dispatch(uniqActor({actor}))
@@ -55,10 +55,10 @@ const movieSlice = createSlice(
         name: 'movieSlice',
         initialState: {
             movies: [],
-            pageId: {page: 1, id: '',name:'All Movies', total: 1},
+            pageId: {page: 1, id: '', name: 'All Movies', total: 1},
             genres: [],
             uniqmovie: {},
-            uniqactor:{}
+            uniqactor: {}
         },
         reducers: {
             getAllMovies: (state, action) => {

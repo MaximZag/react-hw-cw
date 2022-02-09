@@ -15,7 +15,7 @@ const Genres = () => {
 
     const allFunc = (pageId) => {
         dispatch(getMovies({...pageId, page: 1, id: ''}))
-        dispatch(pagination({...pageId, page: 1, id: '',name:'All Movies'}))
+        dispatch(pagination({...pageId, page: 1, id: '', name: 'All Movies'}))
     }
 
     return (
@@ -23,7 +23,7 @@ const Genres = () => {
             <div className={'top-left'}>
                 <button className={'allbutton'} onClick={() => allFunc(pageId)}>All</button>
             </div>
-            <div className={'genres'} >
+            <div className={'genres'}>
                 {genres.map(genre => <Genre key={genre.id} genre={genre}/>)}
             </div>
         </div>

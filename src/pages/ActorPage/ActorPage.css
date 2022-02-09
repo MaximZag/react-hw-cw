@@ -2,19 +2,21 @@
     width: 0;
 }
 
-.actormain{
+.actormain {
     background-color: black;
     height: 100vh;
     overflow: hidden;
     overflow-y: auto;
 }
+
 .actorgeneral {
     display: flex;
     justify-content: center;
     padding-top: 20px;
     column-gap: 20px;
 }
-.backhome{
+
+.backhome {
     position: absolute;
     top: 50px;
     left: 50px;
@@ -23,7 +25,8 @@
     border-radius: 5px;
     border: groove;
 }
-.bio{
+
+.bio {
     font-size: 15px;
 }
 

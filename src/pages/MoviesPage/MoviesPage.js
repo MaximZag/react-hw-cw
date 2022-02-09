@@ -20,19 +20,16 @@ const MoviesPage = () => {
         let i = pageId.page
         if (key === '+' && i !== pageId.total) {
             i++
-            console.log({...pageId, page: i})
             dispatch(getMovies({...pageId, page: i}))
             dispatch(pagination({...pageId, page: i}))
         } else if (key === '-' && i !== 1) {
             i--
-            console.log({...pageId, page: i})
             dispatch(getMovies({...pageId, page: i}))
             dispatch(pagination({...pageId, page: i}))
         }
     }
 
     const submit = (data) => {
-        console.log(data)
         dispatch(getMovies({...pageId, page: data.page}))
         dispatch(pagination({...pageId, page: data.page}))
         reset()

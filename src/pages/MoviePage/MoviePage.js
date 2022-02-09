@@ -1,19 +1,19 @@
 import React from 'react';
 import {useDispatch, useSelector} from "react-redux";
+import {Link} from "react-router-dom";
 
 import './MoviePage.css'
 import Actor from "../../components/Actor/Actor";
-import {Link} from "react-router-dom";
 import {getMovies, pagination} from "../../store/movie.slice";
 
 const MoviePage = () => {
     const {uniqmovie, pageId} = useSelector(state => state['movieReducer'])
     const {genres, poster_path, title, overview, popularity, images, release_date, casts} = uniqmovie
-    const dispatch=useDispatch()
+    const dispatch = useDispatch()
 
     let backimage = ''
     if (images?.backdrops.length < 1) {
-        backimage = 'https://image.tmdb.org/t/p/original/7uRbWOXxpWDMtnsd2PF3clu65jc.jpg?api_key=e77bd741cd0b705c1841df139925cbcd&language=en-US'
+        backimage = 'https://image.tmdb.org/t/p/original/jRSAkKG9QSu6Nc1zvI3ejmgLshe.jpg?api_key=e77bd741cd0b705c1841df139925cbcd&language=en-US'
     } else {
         backimage = `https://image.tmdb.org/t/p/original${images?.backdrops[0].file_path}?api_key=e77bd741cd0b705c1841df139925cbcd`
     }
