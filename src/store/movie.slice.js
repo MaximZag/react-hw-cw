@@ -1,6 +1,8 @@
 import {createAsyncThunk, createSlice} from "@reduxjs/toolkit";
 
 import {moviesService} from "../services/movies.service";
+import emptystar from './4.png'
+import goldstar from './star.png'
 
 export const getMovies = createAsyncThunk(
     'movieSlice/getMovies',
@@ -59,11 +61,17 @@ const movieSlice = createSlice(
             genres: [],
             uniqmovie: {},
             uniqactor: {},
-            last: []
+            last: [],
+            favorites:[]
         },
         reducers: {
             getAllMovies: (state, action) => {
                 state.movies = [...action.payload.movies.results]
+                for (const stateElement of state.movies) {
+                    stateElement.starstatus=emptystar
+                    console.log(stateElement)
+                }
+
                 if (action.payload.movies.total_pages >= 500) {
                     state.pageId = {...state.pageId, total: 500}
                 } else {
@@ -92,12 +100,25 @@ const movieSlice = createSlice(
                 if (state.last.length > 8) {
                     state.last.shift()
                 }
+            },
+            switchstar:(state,action)=>{
+
+                for (const stateElement of state.movies) {
+
+                    if(stateElement.id===action.payload.id && stateElement.starstatus===emptystar){
+                        stateElement.starstatus=goldstar
+                        state.favorites.push(stateElement)
+                    } else if(stateElement.id===action.payload.id && stateElement.starstatus===goldstar){
+                        stateElement.starstatus=emptystar
+                        state.favorites=state.favorites.filter(item=>item.id!==action.payload.id)
+                    }
+                }
             }
         }
     }
 )
 
 const movieReducer = movieSlice.reducer;
-export const {getAllMovies, getAllGenres, uniqMovie, pagination, uniqActor, last5} = movieSlice.actions
+export const {getAllMovies, getAllGenres, uniqMovie, pagination, uniqActor, last5, switchstar} = movieSlice.actions
 
 export default movieReducer
