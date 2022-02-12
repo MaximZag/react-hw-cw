@@ -6,9 +6,10 @@ import {getMovies, pagination} from "../../store/movie.slice";
 import Movie from "../../components/Movie/Movie";
 import Genres from "../../components/Genres/Genres";
 import './MoviesPage.css'
+import Last5 from "../../components/Last5/Last5";
 
 const MoviesPage = () => {
-    const {movies, pageId} = useSelector(state => state['movieReducer'])
+    const {movies, pageId, last} = useSelector(state => state['movieReducer'])
     const dispatch = useDispatch()
     const {register, handleSubmit, reset} = useForm()
 
@@ -44,7 +45,6 @@ const MoviesPage = () => {
         })
     }, [pageId])
 
-
     return (
         <div className={'container'}>
             <div className={'header'}>
@@ -53,6 +53,12 @@ const MoviesPage = () => {
             <div className={'name'}>{pageId.name.toUpperCase()}</div>
             <div className={'movies'} id={'scroll'}>
                 {movies.map(movie => <Movie key={movie.id} movie={movie}/>)}
+            </div>
+            <div className={'last5'}>
+                <div>LAST 8 VIEWED</div>
+                <div className={'last5cards'}>
+                    {last && last.map(movie => <Last5 key={movie.id} movie={movie}/>)}
+                </div>
             </div>
             <div className={'footer'}>
                 <button className={'pagin'} onClick={() => paginationFunc(pageId, '-')}>Previous</button>

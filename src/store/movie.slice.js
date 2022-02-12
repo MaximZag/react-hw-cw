@@ -58,12 +58,17 @@ const movieSlice = createSlice(
             pageId: {page: 1, id: '', name: 'All Movies', total: 1},
             genres: [],
             uniqmovie: {},
-            uniqactor: {}
+            uniqactor: {},
+            last: []
         },
         reducers: {
             getAllMovies: (state, action) => {
                 state.movies = [...action.payload.movies.results]
-                state.pageId = {...state.pageId, total: action.payload.movies.total_pages}
+                if (action.payload.movies.total_pages >= 500) {
+                    state.pageId = {...state.pageId, total: 500}
+                } else {
+                    state.pageId = {...state.pageId, total: action.payload.movies.total_pages}
+                }
             },
             getAllGenres: (state, action) => {
                 state.genres = [...action.payload.genres.genres]
@@ -76,12 +81,25 @@ const movieSlice = createSlice(
             },
             uniqActor: (state, action) => {
                 state.uniqactor = {...action.payload.actor}
+            },
+            last5: (state, action) => {
+                if (state.last.length < 1) {
+                    state.last.push(action.payload.movie)
+                } else {
+                    state.last = state.last.filter(item => item.id !== action.payload.movie.id)
+                    state.last.push(action.payload.movie)
+                }
+                if (state.last.length > 8) {
+                    state.last.shift()
+                }
+
+
             }
         }
     }
 )
 
 const movieReducer = movieSlice.reducer;
-export const {getAllMovies, getAllGenres, uniqMovie, pagination, uniqActor} = movieSlice.actions
+export const {getAllMovies, getAllGenres, uniqMovie, pagination, uniqActor, last5} = movieSlice.actions
 
 export default movieReducer
