@@ -62,14 +62,26 @@ const movieSlice = createSlice(
             uniqmovie: {},
             uniqactor: {},
             last: [],
-            favorites:[]
+            favorites: []
         },
         reducers: {
             getAllMovies: (state, action) => {
                 state.movies = [...action.payload.movies.results]
-                for (const stateElement of state.movies) {
-                    stateElement.starstatus=emptystar
-                    console.log(stateElement)
+                if (state.favorites.length > 0) {
+                    for (const stateElement of state.movies) {
+                        for (const favoritesElement of state.favorites) {
+                            if (stateElement.id === favoritesElement.id) {
+                                stateElement.starstatus = goldstar
+                                break
+                            } else {
+                                stateElement.starstatus = emptystar
+                            }
+                        }
+                    }
+                } else {
+                    for (const stateElement of state.movies) {
+                        stateElement.starstatus = emptystar
+                    }
                 }
 
                 if (action.payload.movies.total_pages >= 500) {
@@ -101,16 +113,14 @@ const movieSlice = createSlice(
                     state.last.shift()
                 }
             },
-            switchstar:(state,action)=>{
-
+            switchstar: (state, action) => {
                 for (const stateElement of state.movies) {
-
-                    if(stateElement.id===action.payload.id && stateElement.starstatus===emptystar){
-                        stateElement.starstatus=goldstar
+                    if (stateElement.id === action.payload.id && stateElement.starstatus === emptystar) {
+                        stateElement.starstatus = goldstar
                         state.favorites.push(stateElement)
-                    } else if(stateElement.id===action.payload.id && stateElement.starstatus===goldstar){
-                        stateElement.starstatus=emptystar
-                        state.favorites=state.favorites.filter(item=>item.id!==action.payload.id)
+                    } else if (stateElement.id === action.payload.id && stateElement.starstatus === goldstar) {
+                        stateElement.starstatus = emptystar
+                        state.favorites = state.favorites.filter(item => item.id !== action.payload.id)
                     }
                 }
             }

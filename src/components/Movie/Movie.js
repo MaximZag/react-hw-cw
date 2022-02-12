@@ -1,5 +1,5 @@
 import React from 'react';
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 import {Link} from "react-router-dom";
 
 import {getOneMovie, last5, switchstar} from '../../store/movie.slice'
@@ -8,8 +8,6 @@ import './Movie.css'
 const Movie = ({movie}) => {
     const {id, original_title, popularity, poster_path, starstatus} = movie
     const dispatch = useDispatch()
-    const{favorites}=useSelector(state => state['movieReducer'])
-    console.log(favorites)
 
     const dispatchactions = () => {
         dispatch(getOneMovie({id}))

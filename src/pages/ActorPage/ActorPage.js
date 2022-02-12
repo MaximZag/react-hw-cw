@@ -8,8 +8,7 @@ import {getMovies, pagination} from "../../store/movie.slice";
 
 const ActorPage = () => {
     const {
-        uniqactor: {name, birthday, biography, movie_credits, profile_path, popularity},
-        pageId
+        uniqactor: {name, birthday, biography, movie_credits, profile_path, popularity}, pageId
     } = useSelector(state => state['movieReducer'])
     const dispatch = useDispatch()
 
@@ -18,8 +17,7 @@ const ActorPage = () => {
         dispatch(pagination({...pageId, page: 1, id: '', name: 'All Movies'}))
     }
 
-    return (
-        <div className={'actormain'}>
+    return (<div className={'actormain'}>
             <div className={'actorgeneral'}>
                 <div className={'left'}>
                     <img src={`https://image.tmdb.org/t/p/w400${profile_path}?api_key=e77bd741cd0b705c1841df139925cbcd`}
@@ -40,8 +38,7 @@ const ActorPage = () => {
             <Link to={'/movies'}>
                 <button className={'backhome'} onClick={() => back(pageId)}>Back to All Movies</button>
             </Link>
-        </div>
-    );
+        </div>);
 };
 
 export default ActorPage;
