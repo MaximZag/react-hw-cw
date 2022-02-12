@@ -92,8 +92,6 @@ const movieSlice = createSlice(
                 if (state.last.length > 8) {
                     state.last.shift()
                 }
-
-
             }
         }
     }
