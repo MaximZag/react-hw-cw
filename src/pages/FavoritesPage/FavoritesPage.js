@@ -6,6 +6,7 @@ import './FavoritesPage.css'
 
 const FavoritesPage = () => {
     const {favorites} = useSelector(state => state['movieReducer'])
+
     return (
         <div className={'favmain'}>
             <div className={'favtitle'}>FAVORITES</div>

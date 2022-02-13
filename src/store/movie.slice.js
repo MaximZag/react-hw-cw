@@ -114,14 +114,21 @@ const movieSlice = createSlice(
                 }
             },
             switchstar: (state, action) => {
+                let count=0
                 for (const stateElement of state.movies) {
                     if (stateElement.id === action.payload.id && stateElement.starstatus === emptystar) {
                         stateElement.starstatus = goldstar
+                        count++
                         state.favorites.push(stateElement)
+
                     } else if (stateElement.id === action.payload.id && stateElement.starstatus === goldstar) {
                         stateElement.starstatus = emptystar
+                        count++
                         state.favorites = state.favorites.filter(item => item.id !== action.payload.id)
                     }
+                }
+                if (count===0){
+                    state.favorites = state.favorites.filter(item => item.id !== action.payload.id)
                 }
             }
         }

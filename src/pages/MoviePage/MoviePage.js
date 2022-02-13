@@ -52,7 +52,7 @@ const MoviePage = () => {
                     key={actor.cast_id} actor={actor}/>)}
             </div>
             <div className={'h2'}><h2>IMAGES</h2></div>
-            <div className={'images'}>{images && images.backdrops.map(image => <img key={image.id}
+            <div className={'images'}>{images && images.backdrops.map(image => <img key={image.file_path}
                                                                                     src={`https://image.tmdb.org/t/p/w300${image.file_path}?api_key=e77bd741cd0b705c1841df139925cbcd`}
                                                                                     alt=""/>)}</div>
             <Link to={'/movies'}>
